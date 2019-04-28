@@ -14,11 +14,13 @@ var CSVToJSON = function() {
       for (var i=1; i<allTextLines.length; i++) {
           var data = allTextLines[i].split(/\t|,/);
           if (data.length == headers.length) {
-            var location = {"creation":data[1], "cp":data[5], "name":data[12], "phone":data[13], "platform":data[11]};
-            client.push(location);
+            var regist = {"creation":data[1], "cp":data[5], "name":data[12], "phone":data[13], "platform":data[11]};
+            client.push(regist);
           }
       }
       console.log(client)
+      jQuery( '#xlx_json' ).val( JSON.stringify(eval(client) );
+
     };
     reader.onerror = function(ex) {
       console.log(ex);
