@@ -1,15 +1,18 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/jszip.js"></script>
 <script src="js/xlsx.js"></script>
-<script src="js/controller.js"></script>
+<script src="js/csv-to-json.js"></script>
+<script src="js/xls-to-json.js"></script>
 <p>https://stackoverflow.com/questions/8238407/how-to-parse-excel-file-in-javascript-html5</p>
-
+    <h2>xls to json   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  csv to json</h2>
     <form enctype="multipart/form-data">
-        <input id="upload" type=file  name="files[]">
+        <input id="upload" type=file  name="files">
+        <input id="csv" type=file>
     </form>
-
     <textarea class="form-control" rows=35 cols=120 id="xlx_json"></textarea>
-
     <script>
+        document.getElementById('csv').addEventListener('change', handleCSVFileSelect, false);
+        //document.getElementById('csv').addEventListener('change', CSVToJSON, false);
+
         document.getElementById('upload').addEventListener('change', handleFileSelect, false);
     </script>
