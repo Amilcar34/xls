@@ -6,6 +6,7 @@ var CSVToJSON = function() {
     reader.onload = function(e) {
       var csvText = e.target.result;
       var allTextLines = csvText.split(/\r\n|\n/);
+      jQuery( '#xlx_json' ).val( $.parseJSON(allTextLines) );
       //Split per line on tabs and commas
       var headers = allTextLines[0].split(/\t|,/);
       var lines = [];
@@ -19,7 +20,6 @@ var CSVToJSON = function() {
           }
       }
       console.log(client)
-      jQuery( '#xlx_json' ).val( JSON.stringify(eval(client) );
 
     };
     reader.onerror = function(ex) {
