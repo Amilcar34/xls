@@ -1,18 +1,23 @@
+
+ <!-- Core -->
 <script src="lib/jquery.min.js"></script>
 <script src="lib/jszip.js"></script>
 <script src="lib/xlsx.js"></script>
+<!-- Controllers -->
 <script src="controller/csv-to-json.js"></script>
 <script src="controller/xls-to-json.js"></script>
+<script src="controller/json-to-csv.js"></script>
 <h2>xls to json   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  csv to json</h2>
-<form enctype="multipart/form-data">
-    <input id="upload" type=file  name="files">
-    <input id="csv" type=file>
-</form>
-<textarea class="form-control" rows=35 cols=120 id="xlx_json"></textarea><br>
+<input id="upload" type=file  name="files">
+<input id="csv" type=file>
+<br></br>
+<textarea class="form-control" rows=35 cols=120 id="textarea_json"></textarea><br>
+<button>Generate File</button><br>
 <script>
     document.getElementById('csv').addEventListener('change', handleCSVFileSelect, false);
     document.getElementById('upload').addEventListener('change', handleFileSelect, false);
-    </script>
-    <a href="https://stackoverflow.com/questions/8238407/how-to-parse-excel-file-in-javascript-html5">Reference xls to json</a><br>
-    <a href="https://stackoverflow.com/questions/27979002/convert-csv-data-into-json-format-using-javascript">Reference csv to json</a><br>
-    <a href="http://jsfiddle.net/sturtevant/AZFvQ/">Download file</a>
+</script>
+<a href="https://stackoverflow.com/questions/8238407/how-to-parse-excel-file-in-javascript-html5">Reference xls to json</a><br>
+<a href="https://stackoverflow.com/questions/27979002/convert-csv-data-into-json-format-using-javascript">Reference csv to json</a><br>
+<a href="http://jsfiddle.net/sturtevant/AZFvQ/">Download file</a>
+<a href="https://jsfiddle.net/1ecj1rtz/">Download file</a>

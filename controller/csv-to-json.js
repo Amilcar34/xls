@@ -15,15 +15,14 @@ var CSVToJSON = function() {
         var data = allTextLines[i].split(/\t|,/);
         if (data.length == headers.length) {
           let creation = data[1].substring(data[1].search('-')+2, data[1].search('T')).replace(' ', '').trim(); 
-          let cp = data[5].replace(/"/gi, '').trim();
-          let name = data[12].replace(/"/gi, '').trim();
-          //let phoneMatch = data[13].match(/[0-9]/);
-          let phone =  data[13].replace(/^\D+/g, '').trim();
-          let platform = data[11].replace(/"/gi, '').trim();
-          var regist = {"creation":creation, "cp":cp, "name":name, "phone":phone, "platform":platform};
+          let cp = JSON.stringify(data[5]).replace(/"/gi, '').replace(/u0000/gi,'').replace(/\//gi, '').replace(/\\/gi, "").trim();
+          let name = JSON.stringify(data[12]).replace(/"/gi, '').replace(/u0000/gi,'').replace(/u000/gi,'').replace(/\\/gi, "").trim();
+          let phone =  JSON.stringify(data[13]).replace(/^\D+/g, '').replace(/u0000/gi,'').replace(/0000/gi,'').replace(/\\/gi, "").replace(/"/gi, "").replace(/p:/gi,"").replace(/\+/gi,"").trim();
+          let platform = JSON.stringify(data[11]).replace(/"/gi, '').replace(/\\/gi, "").trim();
+          var regist = {"Fecha":creation, "Tratamiento":cp, "Nombra":name, "Telefono":phone, "Origen":(platform.includes('f')?'Facebook':'Instragram')};
           client.push(regist);
         }
-        jQuery( '#xlx_json' ).val(  JSON.stringify( eval(client) ).replace(/\\u0000/gi,'') );
+        jQuery( '#textarea_json' ).val(  JSON.stringify( eval(client) ).replace(/\\u0000/gi,'') );
       }
       console.log(client)
 
